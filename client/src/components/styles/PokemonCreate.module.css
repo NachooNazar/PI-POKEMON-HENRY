@@ -1,0 +1,73 @@
+.containerCreate{
+    background-image: url(https://images3.alphacoders.com/771/thumb-1920-77175.jpg) ;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: auto;
+}
+
+label {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    padding: 4px 6px;
+    line-height: 190%;
+    outline-style: none;
+  }
+.btnBack,.btnSub{
+    padding: 12px 20px;
+    width: 60%;
+    border: 1px solid #000;
+    border-radius: 18px;
+    opacity:0.8;
+}
+
+.btnBack:hover,.btnSub:hover{
+    background-color: #808080;
+    cursor: pointer;
+}
+
+.containerForm {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 30px 25px;
+    border-radius: 40px;
+    margin-top: 80px;
+   
+}
+
+.separado {
+    padding-right: 100px;
+  }
+
+  .tipos {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+  
+  .tipos label {
+    margin-top: 100px;
+  }
+  .hiddenCB div {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  
+.error{
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+.danger{
+    justify-content: space-between;
+    justify-items:stretch;
+    padding: -20px;
+    margin-right: 60%;
+    margin-top: -20%;
+}

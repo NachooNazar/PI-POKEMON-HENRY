@@ -1,0 +1,26 @@
+.paginado{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    list-style:none;
+}
+
+.li{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.8);
+    margin: 5px;
+}
+.btn:hover{
+    transform: scale(1.1);
+    transition: all 1s ease;
+}

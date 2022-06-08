@@ -1,0 +1,25 @@
+.btnSearch{
+    width: 5%;
+    padding: 10px 10px;
+    margin: 4px 4px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    box-sizing: border-box;
+    opacity:0.8;
+}
+
+.btnSearch:hover{
+    background-color: #808080;
+    cursor: pointer;
+}
+.inputSearch{
+    width: 15%;
+    padding: 10px 10px;
+    margin: 4px 4px;
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 18px;
+    box-sizing: border-box;
+    opacity:0.9;
+}

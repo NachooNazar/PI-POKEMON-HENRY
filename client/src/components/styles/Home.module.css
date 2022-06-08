@@ -1,0 +1,52 @@
+.home{
+    background-image: url(https://images7.alphacoders.com/312/312091.png);
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+}
+.divCard{
+    
+    justify-self: start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.loadersito{
+align-items: center;
+justify-content: center;
+}
+
+.paginado{
+    display: flex;
+    justify-content:center;
+    gap: 50px;  
+    margin: 0 auto;
+    flex-direction:column;
+}
+
+.orderAndFilter{
+    margin: 8px 5px;
+}
+.btnReload,.linkPokemon,.orderAndFilter{
+    padding: 12px 20px;
+    width: 30%;
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 18px;
+    box-sizing: border-box;
+    opacity:0.8;
+}
+.btnReload,.linkPokemon{
+    display: flex;
+    justify-content:center;
+    margin: 8px 35%;
+}
+.btnReload:hover, .linkPokemon:hover, .orderAndFilter:hover{
+background-color: #808080;
+cursor: pointer;
+}

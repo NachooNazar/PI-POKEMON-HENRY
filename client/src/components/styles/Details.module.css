@@ -1,0 +1,57 @@
+.Details{
+    background-image: url(https://images7.alphacoders.com/381/thumb-1920-381583.jpg);
+    background-size: cover;
+    overflow: auto;
+    height: 100vh;
+    width: 100vw;
+}
+
+.rectangulo{
+    overflow: auto;
+    background-color: gray;
+    margin-left: 30%;
+    margin-top: 10%;
+    width: 40vw; 
+    height:50vh; 
+    border: 3px solid #fff;
+    border-radius: 15px;
+}
+
+.btnBack{
+    padding: 12px 20px;
+    width: 20%;
+    border: 1px solid #000;
+    border-radius: 18px;
+    box-sizing: border-box;
+    opacity:0.8;
+}
+
+.hp,.speed,.defense,.attack,.height,.weight.id{
+    margin:15px;
+    text-shadow:1px 1px 1px #000;
+    color: white;
+}
+
+.pokemonName,.pokemonId,.pokemonTipos,.pokemonHp,.pokemonSpeed,.pokemonDefense,.pokemonAttack,.pokemonWeight,.pokemonHeight{
+    margin:15px;
+    text-shadow:1px 1px 1px #000;
+    color: white;
+}
+.pokemonTipos{
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.pokeTypes{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.image{
+    max-width: 300px;
+    max-height: 300px;
+}
