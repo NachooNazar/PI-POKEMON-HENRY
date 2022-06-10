@@ -32,11 +32,16 @@ export function getTypes() {
     );
   };
 }
-export function postPokemon(pokemon) {
-  return function () {
-    axios.post('http://localhost:3001/pokemons', {
-      ...pokemon,
-    });
+export function postPokemon(payload) {
+  return async function () {
+    try {
+      await axios.post('http://localhost:3001/pokemons', {
+        ...payload,
+      });
+      alert('Succefully created');
+    } catch (error) {
+      alert('Already exist or some trouble during creation! Come back later');
+    }
   };
 }
 
@@ -94,17 +99,26 @@ export function getClean() {
 
 export function getPokemonsName(payload) {
   return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/pokemons?name=${payload}`)
+      .then((pokemon) =>
+        dispatch({
+          type: 'GET_POKEMONS_NAME',
+          payload: pokemon.data,
+        })
+      )
+      .catch((err) => alert(`That pokemon doesnt exist "${payload}"`));
+  };
+}
+
+export function deletePokemon(id) {
+  return (dispatch) => {
     try {
       axios
-        .get(`http://localhost:3001/pokemons?name=${payload}`)
-        .then((pokemon) =>
-          dispatch({
-            type: 'GET_POKEMONS_NAME',
-            payload: pokemon.data,
-          })
-        );
-    } catch (er) {
-      console.log(er, 'L101 SEARCH BAR NAME POKEMON');
+        .delete(`http://localhost:3001/pokemons/${id}`)
+        .then(() => dispatch({ type: 'DELETE_POKEMON' }));
+    } catch (error) {
+      console.log(error, ' L117 ACTIONS');
     }
   };
 }

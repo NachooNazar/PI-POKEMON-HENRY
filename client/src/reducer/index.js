@@ -125,6 +125,11 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+
+    case 'DELETE_POKEMON':
+      return {
+        ...state,
+      };
     default:
       return {
         ...state,

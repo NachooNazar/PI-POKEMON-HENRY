@@ -32,11 +32,6 @@ export default function Home(){
     }
 
     //ESTADOS PARA PAGINADO
-    //Me guardo la pagina actual, siempre empezamos desde la 1
-    //Seteo la cantidad de pokemons que va a haber por pagina
-    //Calculo el index del ultimo pokemon y del primero
-    //Le digo que a currentPokemons que agarre de allPokemons desde el primer pokemon hasta el ultimo calculado segun index
-    
     //EJ: lastPokemonInPage = 1*12 = 12 
     //firstPokemonInPage = 12-12 = 0
     //current agarra desde la pos 0 hasta la 12
@@ -46,20 +41,17 @@ export default function Home(){
     //3 ----26---38
     //4 ----39---40
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const [pokemonsByPage, setPokemonsByPage] = useState(12);
-    const lastPokemonInPage = currentPage * pokemonsByPage;
+    const [currentPage, setCurrentPage] = useState(1); //Me guardo la pagina actual, siempre empezamos desde la 1
+    const [pokemonsByPage, setPokemonsByPage] = useState(12);//Seteo la cantidad de pokemons que va a haber por pagina
+    const lastPokemonInPage = currentPage * pokemonsByPage;//Calculo el index del ultimo pokemon y del primero
     const firstPokemonInPage = lastPokemonInPage - pokemonsByPage;
-    const currentPokemons = allPokemons.slice(firstPokemonInPage,lastPokemonInPage);
+    const currentPokemons = allPokemons?.slice(firstPokemonInPage,lastPokemonInPage);//Le digo que a currentPokemons que agarre de allPokemons desde
+    // el primer pokemon hasta el ultimo calculado segun index
 
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber);
     }
-    
-    //currentPokemons.map(pokemon=>{console.log(pokemon.id)})
-    //Primer select ordenamientos
-    //Segundo select filtrados
-   
+
     //FILTRO POR TIPO-------------------------------------------------
     const handleTypeFilter = (e)=>{
         e.preventDefault();
@@ -89,6 +81,7 @@ export default function Home(){
         setCurrentPage(1);
         setOrder(`Ordenado ${e.target.value}`);
     }
+    
     return(
         <div className={s.home}>
             <NextPrev pokemonsByPage={pokemonsByPage} allPokemons={allPokemons} paginado={paginado} currentPage={currentPage} />
@@ -124,15 +117,16 @@ export default function Home(){
                 </div>
                 <div className={s.paginado}>
                     
-            <Paginado  pokemonsByPage={pokemonsByPage} allPokemons={allPokemons} paginado={paginado} />
+            <Paginado  pokemonsByPage={pokemonsByPage} allPokemons={allPokemons} paginado={paginado} currentPage={currentPage} />
             </div>
             <SearchBar/>
-            {/* CREAR OTRO COMPONENTE Y PASARLE CURRENT POKEMONS */}
+            
                 <div className={s.divCard}>
+                    
                 {currentPokemons.length >0 ? currentPokemons?.map(pokemon=>(
-    <NavLink key={pokemon.id}  to={`/pokemons/${pokemon.id}`}>
-        <Card name={pokemon.name} img={pokemon.img} type={pokemon.type} />
-    </NavLink>
+            <NavLink key={pokemon.id}  to={`/pokemons/${pokemon.id}`}>
+                <Card name={pokemon.name} img={pokemon.img} type={pokemon.type} />
+            </NavLink>
     
     )) : <Loading className={s.loadersito}/>}
                 </div>

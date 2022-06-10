@@ -1,4 +1,3 @@
-//NO SE USA
 const axios = require('axios');
 const { Pokemon, Tipo } = require('../../db');
 
@@ -20,7 +19,6 @@ const getByName = async (name) => {
       },
     });
 
-    //HAGO FINDALL Y CONCATENO LAS DOS RESPONSE
     if (db) {
       return db;
     }
@@ -43,6 +41,7 @@ const getByName = async (name) => {
     };
   } catch (e) {
     console.log(e, ' Error L49 getPkmnByName');
+    return 'error';
   }
 };
 

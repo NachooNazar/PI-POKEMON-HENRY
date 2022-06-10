@@ -4,21 +4,25 @@
     overflow: auto;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .rectangulo{
+    
     overflow: auto;
-    background-color: gray;
-    margin-left: 30%;
-    margin-top: 10%;
-    width: 40vw; 
-    height:50vh; 
+    background-color: rgba(34, 34, 34, 0.541);
+   
+    width: 60vw; 
+    height:70vh; 
     border: 3px solid #fff;
     border-radius: 15px;
 }
 
 .btnBack{
-    padding: 12px 20px;
+    padding: 12px 10px;
     width: 20%;
     border: 1px solid #000;
     border-radius: 18px;
@@ -26,7 +30,7 @@
     opacity:0.8;
 }
 
-.hp,.speed,.defense,.attack,.height,.weight.id{
+.hp,.speed,.defense,.attack,.height,.weight,.id{
     margin:15px;
     text-shadow:1px 1px 1px #000;
     color: white;

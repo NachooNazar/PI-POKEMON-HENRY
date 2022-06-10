@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     const tipardos = await setTypes();
     res.send(tipardos);
   } catch (error) {
-    console.log(e);
+    console.log(error);
   }
 });
 
@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
   try {
     const type = await getTypeDb();
     type ? res.status(200).send(type) : res.status(404).send('Types not found');
-  } catch (e) {
-    throw new Error(e);
+  } catch (error) {
+    console.log(error);
   }
 });
 

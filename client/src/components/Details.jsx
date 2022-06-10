@@ -2,7 +2,7 @@ import React, {useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import Loading from './Loading'
-import { getPokemonsById, getClean} from "../actions";
+import { getPokemonsById, getClean, deletePokemon} from "../actions";
 import s from './styles/Details.module.css'
 export default function PokemonDetail(){
    
@@ -14,12 +14,17 @@ export default function PokemonDetail(){
        dispatch(getPokemonsById(id));
         dispatch(getClean());
       }, [dispatch,id])
+      
+      const handleClickDelete = ()=>{
+        dispatch(deletePokemon(id));
+      }
 
       const pokemon = useSelector((state)=>state.detail)
     return (
         <div className={s.Details}>
             
             {pokemon.type?.length>0 ?
+            
             <div className={s.rectangulo}>
             <h1 className={s.pokemonName}>{pokemon.name}</h1>
             <div>
@@ -63,6 +68,11 @@ export default function PokemonDetail(){
                     <button className={s.btnBack}>Go home</button>
                  </Link>
             </div>
+            {pokemon.id.length > 6 &&  
+            <Link exact to='/home'>
+                <button className={s.btnBack} onClick={handleClickDelete}>Delete</button>
+            </Link>}
+           
             </div>: <Loading/>}
             
         </div>

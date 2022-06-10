@@ -9,20 +9,22 @@ const { getByName } = require('./middleware/getPokemonByName');
 //GET: /pokemons?name="..." -> me pasan los valores por query
 //Traer el pokemon que coincida con el nombre (el query puede ser de la api o creado por nosotrs)
 //Si no existe un pokemon con este nombre, debemos mostrar un mensaje, Ruta hecha en la primera
-router.get('/', async (req, res, next) => {
+router.get('/', (req, res) => {
   const { name } = req.query;
-  try {
-    const response = await getAllPokemon();
+
+  getAllPokemon().then((response) => {
     if (name) {
-      const responseName = await getByName(name);
-      res.status(200).send(responseName);
-    } else {
+      getByName(name).then((responseName) => {
+        if (responseName.name) {
+          res.send(responseName);
+        } else {
+          res.status(404).send('No existe');
+        }
+      });
+    } else if (response) {
       res.status(200).json(response);
     }
-  } catch (e) {
-    next(e);
-    res.status(400).send('Server error');
-  }
+  });
 });
 
 //GET: /pokemons/:idPokemon -> Me pasan el id por params
@@ -47,55 +49,45 @@ router.get('/:id', async (req, res) => {
 
 //POST: /pokemons -> CREA UN POKEMON recibo datos por body
 //Crea un pokemon en la bd
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
   const { name, hp, attack, defense, speed, height, weight, type, img } =
     req.body;
 
-  Pokemon.create({
-    name,
-    hp,
-    attack,
-    defense,
-    speed,
-    height,
-    weight,
-    img,
-  })
-    .then((newPokemon) =>
-      Tipo.findAll({ where: { name: type } }).then((matchTypes) =>
-        newPokemon.addTipo(matchTypes)
-      )
-    )
-    .catch((error) => next(error));
+  try {
+    const pokemon = await getByName(name);
 
-  res.send('Pokemon creado con exito');
-});
+    if (pokemon.id) {
+      return res.status(404).send('Already exists');
+    }
 
-router.delete('/delete/:id', async (req, res) => {
-  const { id } = req.params;
-  Pokemon.destroy({ where: { id } });
-  res.send('Done');
-});
-
-router.put('/put/:id', async (req, res) => {
-  const { id } = req.params;
-  const { name, hp, attack, defense, speed, weight, height, img, type } =
-    req.body;
-  // const pokemons = await getAllPokemon();
-  const toEdit = await Pokemon.update(
-    {
+    const newPokemon = await Pokemon.create({
       name,
       hp,
       attack,
       defense,
       speed,
-      weight,
       height,
+      weight,
       img,
-      type,
-    },
-    { where: { id } }
-  );
-  res.send('Done');
+    });
+
+    const types = await Tipo.findAll({ where: { name: type } });
+    newPokemon.addTipo(types);
+
+    res.send('Created succesfully');
+  } catch (error) {
+    next(error);
+  }
 });
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    Pokemon.destroy({ where: { id } });
+    res.send('Done');
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

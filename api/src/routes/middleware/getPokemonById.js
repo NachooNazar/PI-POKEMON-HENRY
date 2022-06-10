@@ -2,7 +2,6 @@ const axios = require('axios');
 const { Pokemon, Tipo } = require('../../db');
 
 const getById = async (id) => {
-  //https://pokeapi.co/api/v2/pokemon/{id}
   try {
     if (typeof id === 'string' && id.length > 6) {
       const db = await Pokemon.findByPk(id, { include: Tipo });

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 import {Link} from 'react-router-dom'
 import { setTypes } from '../actions';
 import s from './styles/LandingPage.module.css'
-//import { useEffect} from "react";
 
 export default function LandingPage(){
 

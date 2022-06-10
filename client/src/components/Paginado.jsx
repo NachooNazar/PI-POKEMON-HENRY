@@ -1,7 +1,7 @@
 import React from "react";
 import s from './styles/Paginado.module.css'
 
-export default function Paginado({pokemonsByPage,allPokemons,paginado}){
+export default function Paginado({pokemonsByPage,allPokemons,paginado,currentPage}){
     const numbersOfPages = [];
 
     //Este math.ceil me da 4 porque hace 40/12
@@ -16,10 +16,9 @@ export default function Paginado({pokemonsByPage,allPokemons,paginado}){
             <ul className={s.paginado}>
                 {numbersOfPages && numbersOfPages.map(number=> (
                 <li className={s.number} key={number}>
-                    <button className={s.btn} onClick={()=>paginado(number)}>{number}</button>
+                    <button className={currentPage === number ? s.btnPage : s.btn} onClick={()=>paginado(number)}>{number}</button>
                 </li>
                 ))}
-               
             </ul>
         </nav>
     )
