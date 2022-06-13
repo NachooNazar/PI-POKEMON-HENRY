@@ -14,17 +14,15 @@ export default function LandingPage(){
 
     return(
         <div className={s.divLanding}>
-            <div className={s.container}>
-                <p className={s.glitch}> 
-                    <span aria-hidden={true}>POKEDEX PAGE!</span>
-                    POKEDEX PAGE!
-                    <span aria-hidden={true}>POKEDEX PAGE!</span>
-                </p>
+            <div className={s.container}>  
+                    <span className={s.titleLading}>POKEDEX PAGE!</span>
+                    <p className={s.ParrafoLanding}>This an individual project, made by my self for soyHenry bootcamp a pokemon page, go in and enjoy</p>
+                    <p className={s.ParrafoLanding}>The page has filters, sorts, search bar, option to create your own pokemon</p>
             </div>
-            
             <Link to='/home'>
-            <button className={s.button} onClick={handlePostTypes()}>Ingresar</button>
+            <button className={s.button} onClick={handlePostTypes()}>Start Game!</button>
             </Link>
+            
         </div>
     )
 }

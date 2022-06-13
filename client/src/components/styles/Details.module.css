@@ -1,7 +1,5 @@
 .Details{
-    background-image: url(https://images7.alphacoders.com/381/thumb-1920-381583.jpg);
-    background-size: cover;
-    overflow: auto;
+    font-family: 'Pokemon';
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -11,23 +9,34 @@
 }
 
 .rectangulo{
-    
     overflow: auto;
     background-color: rgba(34, 34, 34, 0.541);
-   
-    width: 60vw; 
-    height:70vh; 
-    border: 3px solid #fff;
+    width: 40vw; 
+    height:65vh; 
+    border: 3px solid #000;
     border-radius: 15px;
 }
 
 .btnBack{
+    font-family: 'Pokemon';
+    font-size: large;
+    color: black;
+    cursor: pointer;
+    background: rgb(75, 135, 130);
+    box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.8);
     padding: 12px 10px;
     width: 20%;
     border: 1px solid #000;
     border-radius: 18px;
     box-sizing: border-box;
-    opacity:0.8;
+}
+
+.btnBack:hover{
+    
+    background: #377b80;
+    color: white;
+    top: 10px;
+    box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
 .hp,.speed,.defense,.attack,.height,.weight,.id{
@@ -54,8 +63,7 @@
     align-items: center;
     padding: 15px;
 }
-
 .image{
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 200px;
 }

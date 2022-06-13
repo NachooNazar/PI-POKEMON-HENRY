@@ -12,7 +12,6 @@ function validate({
     speed,
     weight,
     height,
-    img,
     type,
   }) {
     const errors = {};
@@ -183,48 +182,50 @@ export default function PokemonCreate(){
 
       <div className={s.containerCreate}>
         <form className={s.Form} onSubmit={e=>handleSubmit(e)}>
+          <div className={s.btnBackDiv}>
              <Link to='/home'>
                  <button className={s.btnBack}>Go back</button>
             </Link>
+            </div>
         <div className={s.separado}>
           
               <p >
               <label>Name:</label>
-              <input type='text' placeholder='Name' value={name} name='name' onChange={e=>handleOnChange(e)}/>
+              <input className={s.input} type='text' placeholder='Name' value={name} name='name' onChange={e=>handleOnChange(e)}/>
               
               </p>
               <p >
               <label>hp:</label>
-                <input type='number' placeholder='health point' value={hp} name='hp' onChange={e=>handleOnChange(e)}/>
+                <input className={s.input} type='number' placeholder='health point' value={hp} name='hp' onChange={e=>handleOnChange(e)}/>
                 
                 </p>
                 <p >
                 <label>attack:</label>
-                <input type='number' placeholder='attack' value={attack} name='attack' onChange={e=>handleOnChange(e)}/>
+                <input className={s.input} type='number' placeholder='attack' value={attack} name='attack' onChange={e=>handleOnChange(e)}/>
                 
                 </p>
                 <p >
                 <label>defense:</label>
-                <input type='number' placeholder='defense' value={defense} name='defense' onChange={e=>handleOnChange(e)}/>
+                <input className={s.input} type='number' placeholder='defense' value={defense} name='defense' onChange={e=>handleOnChange(e)}/>
                 
                 </p>
                 <p >
                 <label>speed:</label>
-               <input type='number' placeholder='speed' value={speed} name='speed' onChange={e=>handleOnChange(e)}/>
+               <input className={s.input} type='number' placeholder='speed' value={speed} name='speed' onChange={e=>handleOnChange(e)}/>
                
                </p>
                <p >
                <label>height:</label>
-                 <input type='number' placeholder='height' value={height} name='height'onChange={e=>handleOnChange(e)}/>
+                 <input className={s.input} type='number' placeholder='height' value={height} name='height'onChange={e=>handleOnChange(e)}/>
                
                  </p>
                  <p >
                  <label>weight:</label>
-                <input type='number' placeholder='weight' value={weight} name='weight' onChange={e=>handleOnChange(e)}/>
+                <input  className={s.input} type='number' placeholder='weight' value={weight} name='weight' onChange={e=>handleOnChange(e)}/>
                 </p>
                 
                 <label>img:</label>
-              <input type='text' placeholder='img' value={img} name='img'onChange={e=>handleOnChange(e)}/>
+              <input  className={s.input} type='text' placeholder='img' value={img} name='img'onChange={e=>handleOnChange(e)}/>
          
               <div className={s.hiddenCB}>
                 <div className={s.tipos}>
@@ -233,8 +234,9 @@ export default function PokemonCreate(){
                  </select>
                  </div>
                  </div>
-                 
+                 <div className={s.btnSubmit}>
                  <button className={s.btnSub} type='submit'> Submit </button>
+                 </div>
         </div>
         </form>
         <div className={s.danger}>

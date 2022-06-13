@@ -11,11 +11,15 @@
 }
 
 .btnPage{
+    font-family: 'Pokemon';
     font-size: large;
+    color: black;
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
+    border: 3px solid #3d5f6f;
     cursor: pointer;
-    background-color: rgb(88, 73, 73);
+    background: rgb(75, 135, 130);
     border-radius: 50%;
     border: none;
     box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.8);
@@ -23,11 +27,13 @@
 }
 
 .btn{
+    font-family: 'Pokemon';
     font-size: large;
     display: flex;
     justify-content: center;
+    background: rgb(121, 211, 203);
     cursor: pointer;
-    background-color: #fff;
+    color: black;
     border-radius: 50%;
     border: none;
     box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.8);

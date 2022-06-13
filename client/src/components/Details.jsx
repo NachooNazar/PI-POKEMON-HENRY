@@ -37,27 +37,27 @@ export default function PokemonDetail(){
                     <span className={s.pokemonId}>{pokemon.id}</span>
                 </div>
                 <div>
-                    <span className={s.hp}>Hp</span>
+                    <span className={s.hp}>Hp:</span>
                     <span className={s.pokemonHp}>{pokemon.hp}</span>
                 </div>
                 <div>
-                    <span className={s.speed}>Speed</span>
+                    <span className={s.speed}>Speed:</span>
                     <span className={s.pokemonSpeed}>{pokemon.speed}</span>
                 </div>
                 <div>
-                    <span className={s.defense}>Defense</span>
+                    <span className={s.defense}>Defense:</span>
                     <span className={s.pokemonDefense}>{pokemon.defense}</span> 
                 </div>
                 <div>
-                    <span className={s.attack}>Attack</span>
+                    <span className={s.attack}>Attack:</span>
                     <span className={s.pokemonAttack}>{pokemon.attack}</span>
                 </div>
                 <div>
-                    <span className={s.height}>Height</span>
+                    <span className={s.height}>Height:</span>
                     <span className={s.pokemonHeight}>{pokemon.height}</span>
                 </div>
                 <div>
-                    <span className={s.weight}>Weight</span>
+                    <span className={s.weight}>Weight:</span>
                     <span className={s.pokemonWeight}>{pokemon.weight}</span>
                 </div>
 

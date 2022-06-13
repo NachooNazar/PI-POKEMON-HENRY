@@ -33,7 +33,8 @@ const getById = async (id) => {
       speed: pokemon.data.stats[5].base_stat,
       height: pokemon.data.height,
       weight: pokemon.data.weight,
-      img: pokemon.data.sprites.other.dream_world.front_default,
+      // img: pokemon.data.sprites.other.dream_world.front_default,
+      img: pokemon.data.sprites.front_default,
       type: pokemon.data.types.map((tipo) => tipo.type.name),
     };
   } catch (e) {

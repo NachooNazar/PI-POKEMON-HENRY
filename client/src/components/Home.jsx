@@ -25,12 +25,6 @@ export default function Home(){
       const allPokemons = useSelector((state)=>state.pokemons) 
       const allTypes = useSelector((state)=>state.typesGet)
 
-    //Manejo el click para volver a cargar todos los pokemons, por si hay algun bug
-    const handleClick = (e)=>{
-        e.preventDefault();
-        dispatch(getPokemons());
-    }
-
     //ESTADOS PARA PAGINADO
     //EJ: lastPokemonInPage = 1*12 = 12 
     //firstPokemonInPage = 12-12 = 0
@@ -84,48 +78,52 @@ export default function Home(){
     
     return(
         <div className={s.home}>
-            <NextPrev pokemonsByPage={pokemonsByPage} allPokemons={allPokemons} paginado={paginado} currentPage={currentPage} />
-            <NavLink  to='/pokemons'>
-                <button className={s.linkPokemon}>Create pokemon</button>
+            
+            <header className={s.headerHome}>
+                <NavLink to='/'>
+                <button className={s.btnHome}>Home</button>
                 </NavLink>
-            <button className={s.btnReload} onClick={e=>handleClick(e)}>
-               Reload Pokemons
-            </button>
-              <div className={s.selects}>
-                <select className={s.orderAndFilter} onChange={e=>handleOrderByName(e)}>
-                    <option value='asc'>A-Z</option>
-                    <option value='desc'>Z-A</option>
-                </select>
-                <select className={s.orderAndFilter}  onChange={e=>handleOrderByAttack(e)}>
-                    <option value='fuer-asc'>Ascending attack</option>
-                    <option value='fuer-desc'>Descending attack</option>
-                </select>
-                <select className={s.orderAndFilter} onChange={e=>handleTypeFilter(e)}>
-                    <option value='' disabled selected >Filter by type</option>
-                    <option value='todos'>All</option>
-                    {allTypes && allTypes.map((tipo)=>(
-                    <option key={tipo.id} value={tipo.name}> {tipo.name} </option>
-                    ))}
-                </select>
+                <NavLink  to='/pokemons'>
+                    <button className={s.linkPokemon}>Create pokemon</button>
+                </NavLink>
+                
+                <SearchBar/>
+            </header>
+                <div className={s.selects}>
+                    <select className={s.orderAndFilter} onChange={e=>handleOrderByName(e)}>
+                        <option value='asc'>A-Z</option>
+                        <option value='desc'>Z-A</option>
+                    </select>
+                    <select className={s.orderAndFilter}  onChange={e=>handleOrderByAttack(e)}>
+                        <option value='fuer-asc'>Ascending attack</option>
+                        <option value='fuer-desc'>Descending attack</option>
+                    </select>
+                    <select className={s.orderAndFilter} onChange={e=>handleTypeFilter(e)}>
+                        <option value='' disabled selected >Filter by type</option>
+                        <option value='todos'>All</option>
+                        {allTypes && allTypes.map((tipo)=>(
+                        <option key={tipo.id} value={tipo.name}> {tipo.name} </option>
+                        ))}
+                    </select>
 
-                <select className={s.orderAndFilter} onChange={e=>handleFilterCreated(e)}> 
-                    <option value='' disabled selected >Created by</option>
-                    <option value='todos'>All</option>
-                    <option value='nosotros'>Data Base</option>
-                    <option value='api'>Api</option>
-                </select>
+                    <select className={s.orderAndFilter} onChange={e=>handleFilterCreated(e)}> 
+                        <option value='' disabled selected >Created by</option>
+                        <option value='todos'>All</option>
+                        <option value='nosotros'>Data Base</option>
+                        <option value='api'>Api</option>
+                    </select>
                 </div>
                 <div className={s.paginado}>
-                    
-            <Paginado  pokemonsByPage={pokemonsByPage} allPokemons={allPokemons} paginado={paginado} currentPage={currentPage} />
-            </div>
-            <SearchBar/>
-            
+                    {/* <NextPrev pokemonsByPage={pokemonsByPage} allPokemons={allPokemons} paginado={paginado} currentPage={currentPage} /> */}
+                    <Paginado  pokemonsByPage={pokemonsByPage} allPokemons={allPokemons} paginado={paginado} currentPage={currentPage} />
+                </div>
+                
+         
                 <div className={s.divCard}>
                     
                 {currentPokemons.length >0 ? currentPokemons?.map(pokemon=>(
             <NavLink key={pokemon.id}  to={`/pokemons/${pokemon.id}`}>
-                <Card name={pokemon.name} img={pokemon.img} type={pokemon.type} />
+                <Card name={pokemon.name} img={pokemon.img} type={pokemon.type} attack={pokemon.attack} />
             </NavLink>
     
     )) : <Loading className={s.loadersito}/>}

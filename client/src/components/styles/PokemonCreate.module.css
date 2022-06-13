@@ -1,11 +1,15 @@
 .containerCreate{
-    background-image: url(https://images3.alphacoders.com/771/thumb-1920-77175.jpg) ;
-    background-size: cover;
+  font-family: 'Pokemon';
+    margin: 5rem;
+    margin-left: 40rem;
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: auto;
+    background-color: rgba(34, 34, 34, 0.541);
+    width: 30vw; 
+    height:60vh; 
+    border: 3px solid #000;
+    border-radius: 15px;
 }
 
 label {
@@ -15,33 +19,47 @@ label {
     line-height: 190%;
     outline-style: none;
   }
+
+  .btnSubmit,.btnBackDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 .btnBack,.btnSub{
-    padding: 12px 20px;
-    width: 60%;
-    border: 1px solid #000;
-    border-radius: 18px;
-    opacity:0.8;
+  font-family: 'Pokemon';
+  font-size: large;
+  color: black;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 3px solid #3d5f6f;
+  cursor: pointer;
+  background: rgb(75, 135, 130);
+  border-radius: 50%;
+  border: none;
+  box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.8);
+  margin: 5px;
+  padding: 12px 20px;
+
 }
 
 .btnBack:hover,.btnSub:hover{
-    background-color: #808080;
-    cursor: pointer;
+  background: #275d61;
+  color: white;
+  top: 10px;
+  box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
 }
 
-.containerForm {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 30px 25px;
-    border-radius: 40px;
-    margin-top: 80px;
-   
+.input{
+  font-family: 'Pokemon';
+  font-size: medium;
+  color: black;
+  box-sizing: border-box;
+  border: 3px solid #3d5f6f;
+  border-radius: 15px;
+  
 }
-
-.separado {
-    padding-right: 100px;
-  }
 
   .tipos {
     display: flex;
@@ -68,6 +86,6 @@ label {
     justify-content: space-between;
     justify-items:stretch;
     padding: -20px;
-    margin-right: 70%;
-    margin-top: -9%;
+    margin-right: -150%;
+    margin-top: -80%;
 }
